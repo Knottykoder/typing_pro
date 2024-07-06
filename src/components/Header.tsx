@@ -79,7 +79,7 @@ const Header = ({ restart, openAboutModal }: HeaderProps) => {
         <h1
           className={`font-mono text-2xl font-bold hover:underline lg:text-3xl`}
         >
-          OpenType.
+          TypingPro.
         </h1>
         <Tooltip tooltipId='keyboard'>
           <div

@@ -1,9 +1,15 @@
 import { useThemeContext } from './hooks/useTheme';
 import Header from './components/Header';
+import { useSystem } from './hooks/useSystem';
 
 
 function App() {
   const { systemTheme } = useThemeContext();
+  const {
+    restartTest,
+    closeModal,
+    openModal,
+  } = useSystem();
 
   return (
     <div
@@ -18,7 +24,7 @@ function App() {
         style={{}}
       >
       
-            {/* <Header/> */}
+            <Header restart={restartTest} closeAboutModal={closeModal} openAboutModal={openModal}/>
       </main>
     </div>
   );
