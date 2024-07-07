@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useThemeContext } from './hooks/useTheme';
+import Header from './components/Header';
+import { useSystem } from './hooks/useSystem';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { systemTheme } = useThemeContext();
+  const {
+    restartTest,
+    closeModal,
+    openModal,
+  } = useSystem();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      className='h-screen w-full overflow-y-auto'
+      style={{
+        backgroundColor: systemTheme.background.primary,
+        color: systemTheme.text.primary,
+      }}
+    >
+      <main
+        className=' mx-auto flex h-full max-w-5xl flex-col gap-4 px-4 xl:px-0'
+        style={{}}
+      >
+      
+            <Header restart={restartTest} closeAboutModal={closeModal} openAboutModal={openModal}/>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
