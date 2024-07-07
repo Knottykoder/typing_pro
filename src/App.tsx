@@ -1,10 +1,21 @@
 import { useThemeContext } from './hooks/useTheme';
 import Header from './components/Header';
 import { useSystem } from './hooks/useSystem';
+import WordWrapper from './components/WordWrapper';
+import WordContainer from './components/WordContainer';
+import UserTyped from './components/UserTyped';
+import Countdown from './components/CountDown';
 
 function App() {
   const { systemTheme } = useThemeContext();
   const {
+    wordContainerFocused,
+    countdown,
+    word,
+    charTyped,
+    checkCharacter,
+    setWordContainerFocused,
+    resetCountdown,
     restartTest,
     closeModal,
     openModal,
@@ -24,6 +35,18 @@ function App() {
       >
       
             <Header restart={restartTest} closeAboutModal={closeModal} openAboutModal={openModal}/>
+            <Countdown countdown={countdown} reset={resetCountdown} />
+            <WordWrapper
+              focused={wordContainerFocused}
+              setFocused={setWordContainerFocused}
+            >
+              <WordContainer word={word} />
+              <UserTyped
+                word={word}
+                check={checkCharacter}
+                charTyped={charTyped}
+              />
+            </WordWrapper>
       </main>
     </div>
   );
