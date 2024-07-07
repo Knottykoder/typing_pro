@@ -2,7 +2,6 @@ import { useThemeContext } from './hooks/useTheme';
 import Header from './components/Header';
 import { useSystem } from './hooks/useSystem';
 
-
 function App() {
   const { systemTheme } = useThemeContext();
   const {
