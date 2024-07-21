@@ -8,6 +8,8 @@ import Countdown from './components/CountDown';
 import TimeCategory from './components/TimeCategory';
 import Restart from './components/Restart';
 import Footer from './components/Footer';
+import ModalComponent from './components/Modal';
+import ModalContent from './components/ModalContent';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -16,6 +18,8 @@ function App() {
     countdown,
     word,
     time,
+    results,
+    modalIsOpen,
     charTyped,
     checkCharacter,
     setLocalStorageValue,
@@ -61,6 +65,17 @@ function App() {
             </WordWrapper>
             <Restart restart={restartTest} />
             <Footer />
+            <ModalComponent
+              type='result'
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+            >
+              <ModalContent
+                totalTime={time}
+                results={results}
+                history={history}
+              />
+            </ModalComponent>
       </main>
     </div>
   );
