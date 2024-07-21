@@ -6,6 +6,7 @@ import WordContainer from './components/WordContainer';
 import UserTyped from './components/UserTyped';
 import Countdown from './components/CountDown';
 import TimeCategory from './components/TimeCategory';
+import Restart from './components/Restart';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -57,6 +58,7 @@ function App() {
                 charTyped={charTyped}
               />
             </WordWrapper>
+            <Restart restart={restartTest} />
       </main>
     </div>
   );
