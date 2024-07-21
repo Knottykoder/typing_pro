@@ -8,16 +8,14 @@ import { FaCameraRetro } from 'react-icons/fa';
 
 import Character from './Character';
 
+import type { HistoryType, Results } from '../types';
 
-import type { Results } from '../types';
-// import type { HistoryType } from '../types';
 import { useClipboard } from '../hooks/useClipboard';
 import ResultCard from './ResultCard';
 
 type ModalContentProps = {
   totalTime: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  history: any;
+  history: HistoryType;
   results: Results;
 };
 
@@ -70,9 +68,9 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
             tooltipContent='correct/incorrect'
             tooltipPlace='top'
             results={`${Math.round(
-              history.typedHistory.length * (results.accuracy / 100)
+              history?.typedHistory.length * (results.accuracy / 100)
             )} / ${Math.round(
-              history.typedHistory.length * (results.error / 100)
+              history?.typedHistory.length * (results.error / 100)
             )}`}
           />
           <ResultCard
@@ -94,7 +92,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
             tooltipId='total'
             tooltipContent='total character typed'
             tooltipPlace='bottom'
-            results={`${history.typedHistory.length}`}
+            results={`${history?.typedHistory.length}`}
           />
         </div>
       </div>
@@ -133,7 +131,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
           </div>
         </div>
         <div className='mt-3 text-lg lg:text-xl'>
-          {history.typedHistory.split('').map((char:string, index:number) => {
+          {history.typedHistory.split('').map((char, index) => {
             return (
               <Character
                 key={index + char}

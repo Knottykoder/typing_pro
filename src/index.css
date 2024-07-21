@@ -17,7 +17,7 @@ body {
   @apply cursor-pointer rounded-md p-2 font-mono text-xl;
 }
 
-/* @layer components {
+@layer components {
   .character:last-child::after {
     content: '';
     width: 2px;
@@ -26,7 +26,7 @@ body {
     display: inline-block;
     animation: cursorBlink 0.65s steps(2) infinite;
   }
-} */
+}
 
 .ReactModal__Overlay {
   opacity: 0;

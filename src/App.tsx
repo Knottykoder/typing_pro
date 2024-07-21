@@ -10,6 +10,7 @@ import Restart from './components/Restart';
 import Footer from './components/Footer';
 import ModalComponent from './components/Modal';
 import ModalContent from './components/ModalContent';
+import AboutPage from './components/About';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -18,7 +19,9 @@ function App() {
     countdown,
     word,
     time,
+    history,
     results,
+    aboutModal,
     modalIsOpen,
     charTyped,
     checkCharacter,
@@ -75,6 +78,13 @@ function App() {
                 results={results}
                 history={history}
               />
+            </ModalComponent>
+            <ModalComponent
+              type='about'
+              isOpen={aboutModal}
+              onRequestClose={closeModal}
+            >
+              <AboutPage />
             </ModalComponent>
       </main>
     </div>
