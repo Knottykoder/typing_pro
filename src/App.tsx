@@ -5,6 +5,7 @@ import WordWrapper from './components/WordWrapper';
 import WordContainer from './components/WordContainer';
 import UserTyped from './components/UserTyped';
 import Countdown from './components/CountDown';
+import TimeCategory from './components/TimeCategory';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -12,8 +13,11 @@ function App() {
     wordContainerFocused,
     countdown,
     word,
+    time,
     charTyped,
     checkCharacter,
+    setLocalStorageValue,
+    setTime,
     setWordContainerFocused,
     resetCountdown,
     restartTest,
@@ -35,6 +39,12 @@ function App() {
       >
       
             <Header restart={restartTest} closeAboutModal={closeModal} openAboutModal={openModal}/>
+            <TimeCategory
+              time={time}
+              setLocalStorage={setLocalStorageValue}
+              setTime={setTime}
+              restart={restartTest}
+            />
             <Countdown countdown={countdown} reset={resetCountdown} />
             <WordWrapper
               focused={wordContainerFocused}
