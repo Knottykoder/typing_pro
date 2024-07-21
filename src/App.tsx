@@ -7,6 +7,7 @@ import UserTyped from './components/UserTyped';
 import Countdown from './components/CountDown';
 import TimeCategory from './components/TimeCategory';
 import Restart from './components/Restart';
+import Footer from './components/Footer';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -59,6 +60,7 @@ function App() {
               />
             </WordWrapper>
             <Restart restart={restartTest} />
+            <Footer />
       </main>
     </div>
   );
