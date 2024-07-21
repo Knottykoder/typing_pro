@@ -5,6 +5,12 @@ import WordWrapper from './components/WordWrapper';
 import WordContainer from './components/WordContainer';
 import UserTyped from './components/UserTyped';
 import Countdown from './components/CountDown';
+import TimeCategory from './components/TimeCategory';
+import Restart from './components/Restart';
+import Footer from './components/Footer';
+import ModalComponent from './components/Modal';
+import ModalContent from './components/ModalContent';
+import AboutPage from './components/About';
 
 function App() {
   const { systemTheme } = useThemeContext();
@@ -12,8 +18,15 @@ function App() {
     wordContainerFocused,
     countdown,
     word,
+    time,
+    history,
+    results,
+    aboutModal,
+    modalIsOpen,
     charTyped,
     checkCharacter,
+    setLocalStorageValue,
+    setTime,
     setWordContainerFocused,
     resetCountdown,
     restartTest,
@@ -35,6 +48,12 @@ function App() {
       >
       
             <Header restart={restartTest} closeAboutModal={closeModal} openAboutModal={openModal}/>
+            <TimeCategory
+              time={time}
+              setLocalStorage={setLocalStorageValue}
+              setTime={setTime}
+              restart={restartTest}
+            />
             <Countdown countdown={countdown} reset={resetCountdown} />
             <WordWrapper
               focused={wordContainerFocused}
@@ -47,6 +66,26 @@ function App() {
                 charTyped={charTyped}
               />
             </WordWrapper>
+            <Restart restart={restartTest} />
+            <Footer />
+            <ModalComponent
+              type='result'
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+            >
+              <ModalContent
+                totalTime={time}
+                results={results}
+                history={history}
+              />
+            </ModalComponent>
+            <ModalComponent
+              type='about'
+              isOpen={aboutModal}
+              onRequestClose={closeModal}
+            >
+              <AboutPage />
+            </ModalComponent>
       </main>
     </div>
   );
